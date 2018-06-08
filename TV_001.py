@@ -64,7 +64,10 @@ for len in range (0 , x.shape[0]):
      delay_time = random.randint(1,10) 
      time.sleep(delay_time)
      
-time.sleep(320)
+r = requests.put("http://track.intracworks.com:5055/?id="+(str(382056))+"&lat="+(latx)+"&lon="+(longx)+"&timestamp="+(timex)+"&speed="+ str(0)))
+time.sleep(0.01)
+r = requests.put("http://track.intracworks.com:5055/?id="+(str(382056))+"&lat="+(latx)+"&lon="+(longx)+"&timestamp="+(timex)+"&speed="+ str(0)))
+time.sleep(100)
 
 for len in range (x.shape[0],0,-1):
      longx = str(x[len-1,0])
@@ -73,4 +76,8 @@ for len in range (x.shape[0],0,-1):
      r = requests.put("http://track.intracworks.com:5055/?id="+(str(382056))+"&lat="+(latx)+"&lon="+(longx)+"&timestamp="+(timex)+"&speed="+ str(random.randint(10,40)))
      delay_time = random.randint(1,10) 
      time.sleep(delay_time)
+
+r = requests.put("http://track.intracworks.com:5055/?id="+(str(382056))+"&lat="+(latx)+"&lon="+(longx)+"&timestamp="+(timex)+"&speed="+ str(0)))
+time.sleep(0.01)
+r = requests.put("http://track.intracworks.com:5055/?id="+(str(382056))+"&lat="+(latx)+"&lon="+(longx)+"&timestamp="+(timex)+"&speed="+ str(0)))
 
