@@ -18,7 +18,9 @@ def login():
     response = urllib2.urlopen(request, urllib.urlencode(user))
     if debug:
         print ('\nlogin: %s\n' % repr(json.load(response)))
-    return response.headers.get('Set-Cookie')
+    cookie = response.headers.get('Set-Cookie')
+    response.close()
+    return cookie
 
 def add_device(cookie, name,unique_id):
     request = urllib2.Request(baseUrl + '/api/devices')
@@ -27,7 +29,8 @@ def add_device(cookie, name,unique_id):
     device = { 'name' : name, 'uniqueId' : unique_id,'category' : 'Bus' }
     response = urllib2.urlopen(request, json.dumps(device))
     data = json.load(response)
+    response.close()
     return data['id']
 
-#cookie = login()
-#add_device(cookie,382506)
+cookie = login()
+add_device(cookie,382505)
